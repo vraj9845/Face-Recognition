@@ -1,0 +1,153 @@
+mysql> desc student;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| USN         | varchar(20) | NO   | PRI | NULL    |       |
+| NAME        | varchar(20) | NO   |     | NULL    |       |
+| DOB         | varchar(20) | NO   |     | NULL    |       |
+| COURSE_CODE | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into STUDENT values('1PE16CS000','TOTAL:',26-08-1998,'C1');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into STUDENT values('1PE16CS157','Soha:',17-12-1997,'C1');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into STUDENT values('1PE16CS160','Sreejit:',2-11-1998,'C1');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into STUDENT values('1PE16CS164','Suraj:',5-07-1997,'C1');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into STUDENT values('1PE16CS1790','Vraj:',9-01-1998,'C1');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from STUDENT;
++-------------+----------+-------+-------------+
+| USN         | NAME     | DOB   | COURSE_CODE |
++-------------+----------+-------+-------------+
+| 1PE16CS000  | TOTAL:   | -1980 | C1          |
+| 1PE16CS157  | Soha:    | -1992 | C1          |
+| 1PE16CS160  | Sreejit: | -2007 | C1          |
+| 1PE16CS164  | Suraj:   | -1999 | C1          |
+| 1PE16CS1790 | Vraj:    | -1990 | C1          |
++-------------+----------+-------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into SUBJECT values('15CS51','ME');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into SUBJECT values('15CS52','CN');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into SUBJECT values('15CS53','DBMS');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into SUBJECT values('15CS54','ATC');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into SUBJECT values('15CS551','AI');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into SUBJECT values('15CS552','OOMD');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into SUBJECT values('15CSL51','CN_LAB');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into SUBJECT values('15CSL52','DBMS_LAB');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from SUBJECT;
++--------------+--------------+
+| SUBJECT_CODE | SUBJECT_NAME |
++--------------+--------------+
+| 15CS51       | ME           |
+| 15CS52       | CN           |
+| 15CS53       | DBMS         |
+| 15CS54       | ATC          |
+| 15CS551      | AI           |
+| 15CS552      | OOMD         |
+| 15CSL51      | CN_LAB       |
+| 15CSL52      | DBMS_LAB     |
++--------------+--------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into COURSE values('C1','BTECH');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into COURSE values('C2','MTECH');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from COURSE;
++-------------+-------------+
+| COURSE_CODE | COURSE_NAME |
++-------------+-------------+
+| C1          | BTECH       |
+| C2          | MTECH       |
++-------------+-------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from ATTENDS;
++------------+--------------+------------+---------------+
+| USN        | SUBJECT_CODE | DATE       | ATTEND_VALUES |
++------------+--------------+------------+---------------+
+| 1PE16CS000 | 15CS52       | 11-11-2018 | 1             |
+| 1PE16CS157 | 15CS52       | 11-11-2018 | 1             |
+| 1PE16CS160 | 15CS52       | 11-11-2018 | 1             |
+| 1PE16CS161 | 15CS52       | 11-11-2018 | 1             |
++------------+--------------+------------+---------------+
+4 rows in set (0.00 sec)
+
+mysql> desc OFFERS;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| COURSE_CODE  | varchar(20) | NO   | PRI | NULL    |       |
+| SUBJECT_CODE | varchar(20) | NO   | PRI | NULL    |       |
+| SEMESTER     | varchar(20) | NO   | PRI | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into OFFERS values('C1','15CS51','5');                                                                                         
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into OFFERS values('C1','15CS52','5');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into OFFERS values('C1','15CS53','5');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into OFFERS values('C1','15CS54','5');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into OFFERS values('C1','15CS551','5');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into OFFERS values('C1','15CS552','5');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into OFFERS values('C1','15CSL51','5');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into OFFERS values('C1','15CSL52','5');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from OFFERS;
++-------------+--------------+----------+
+| COURSE_CODE | SUBJECT_CODE | SEMESTER |
++-------------+--------------+----------+
+| C1          | 15CS51       | 5        |
+| C1          | 15CS52       | 5        |
+| C1          | 15CS53       | 5        |
+| C1          | 15CS54       | 5        |
+| C1          | 15CS551      | 5        |
+| C1          | 15CS552      | 5        |
+| C1          | 15CSL51      | 5        |
+| C1          | 15CSL52      | 5        |
++-------------+--------------+----------+
+8 rows in set (0.00 sec)
+
+
